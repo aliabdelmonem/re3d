@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+<odoo>
+
+    <record id="product_template_manufacturer_form_view" model="ir.ui.view">
+        <field name="name">product.template.form - product_manufacturer</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+
+            <page name="general_information" position="inside">
+                <group name="manufacturer" string="Manufacturer">
+                    <group>
+                        <field name="manufacturer" context="{'default_supplier':True, 'default_customer':False}"/>
+                        <field name="manufacturer_pname" />
+                    </group>
+                    <group>
+                        <field name="manufacturer_pref" />
+                        <field name="manufacturer_purl" widget="url"/>
+                    </group>
+                </group>
+            </page>
+
+            <page name="general_information" position="after">
+                <page string="Cost Info" name="cost">
+                <group>
+                    <group>
+                        <field name="dqr_reviewed"/>
+                        <field name="dqr_date"/>
+                        <field name="labor_cost"/>
+                        <field name="deb_cost"/>
+                    </group>
+                    <group>
+                        <field name="sand_cost"/>
+                        <field name="shipping_cost"/>
+                        <field name="machining_cost"/>
+                    </group>
+                </group>
+
+                </page>
+            </page>
+        </field>
+    </record>
+
+</odoo>
